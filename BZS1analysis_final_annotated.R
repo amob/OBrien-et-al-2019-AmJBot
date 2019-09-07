@@ -107,11 +107,11 @@ bzs.dattrt <- data.frame(pixstart = mapdatn16$area,  pix20 =  mapdatn20$area*bot
 	 dpixse =  mapdatn26$area -  mapdatn16$area ,
 	dpixs20 = mapdatn20$area*botrat - mapdatn16$area, dpix2023 =  (mapdatn23$area - mapdatn20$area)*botrat, dpixs23 =  mapdatn23$area*botrat - mapdatn16$area, dpix23e =  mapdatn26$area -  mapdatn23$area*botrat  , dpixse =  mapdatn26$area -  mapdatn16$area ,
 	bzt = trts$bzt, nacl=trts$nacl, inoc=trts$inoc, plnt.micr=trts$plnt.micr, plate = trts$plate,
-	lbzt = log(trts$bzt+.01), lnacl=log(trts$nacl+.08), setuperror= trts$SetupErrorPossible,
+	lbzt = log(trts$bzt+.01), lnacl=log(trts$nacl+.08), 
 	lOD600 = logOD600, lOD750 = logOD750, flOD600 = flOD600, Lcellfb6 = Lcellfb6, cellfb6 = ODtoCells(ODdat$od600.fancyblankmean) - 792,
 	red =mapdatn26$red / (3*mapdatn26$meangray), green = 1- mapdatn26$red / (3*mapdatn26$meangray) - mapdatn26$blue / (3*mapdatn26$meangray), blue =mapdatn26$blue / (3*mapdatn26$meangray), #there's an error in the RGB data. plate 3 has identical values for green and blue., given their range (below all other green values), they are clearly the blue values duplicated, #HOWEVER, these values add to 1, nearly perfectly, so just get green from the other two. check out  plot(bzs.dattrt$green ~ I(mapdatn26$green / (3*mapdatn26$meangray)) )
 	aggrE = mapdatn26$area/mapdatn26$perim, daggrE = mapdatn26$area/mapdatn26$perim - mapdatn16$area/mapdatn16$perim) 
-bzs.dattrt.c <- bzs.dattrt[bzs.dattrt$setuperror != "y",]
+
 
 
 bzs.dattrt$x <- ( (ceiling(trts$plate/8) -1) * 127.63 ) + ( trts$column * (127/6) )
@@ -125,10 +125,21 @@ sizetime <- data.frame(pix = c(bzs.dattrt[,1],bzs.dattrt[,2],bzs.dattrt[,3],bzs.
 			lnacl = rep(log(bzs.dattrt$nacl + .08),times=4), lbzt = rep(log(bzs.dattrt$bzt+.01),times=4))
 sizetime$rpix <- round(sizetime$pix)
 #
+
+
+
+write.csv(bzs.dattrt,"~/bzs.dattrt.csv",row.names=F)
+write.csv(sizetime,"~/sizetime.csv",row.names=F)
+
+bzs.dattrt <- read.csv(bzs.dattrt,"~/bzs.dattrt.csv",header=T)
+sizetime <- read.csv("~/sizetime.csv",header=T)
+
+
 bzs.dattrtI <- bzs.dattrt[bzs.dattrt$inoc=="y",]
 
 #BZT and NACL were chosen at power of 10 increasing levels. 
 #note that OD and cell count data seem to have similar inflated 0 issues causing a similar non-normal trend. but "0" is not strictly 0, instead the detection limit. Log of cell count, where we subtract the minimum calculateable value, and then re-add 10% of it. -- see above
+
 
 
 
