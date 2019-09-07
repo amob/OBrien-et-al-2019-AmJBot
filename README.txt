@@ -28,7 +28,13 @@ Creates output files:
 Depends on libraries: MCMCglmm
 
 
-R Script:
+R Script: 
 Goal: Analyze microbiome data
 Requires input files:
+  "bzsfieldtab.csv" (table of abundances in samples by ASV, includes inocula and field samples)
+  "bzstax.csv" (taxonomic identification of ASVs)
 Creates output files:
+  "Figure1.pdf" (Figure 1)
+  "abundpanel_for_supp_text.pdf" (Supplementary figure, Appendix S5)
+   *also creates r objects (tables, primarily), or output to terminal used in manuscript text*
+Depends on libraries: Polychrome, ade4, SDMTools
