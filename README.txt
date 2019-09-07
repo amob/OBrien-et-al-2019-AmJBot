@@ -1,5 +1,5 @@
 # OBrien-et-al-2019-AmJBot
-Data and analyses for O'Brien et al 2019, American Journal of Botany.
+Repository includes data and analyses for O'Brien et al 2019, American Journal of Botany.
 
 R Script: "BZS1analysis_final_annotated.R"
 Goal: Analyze experimental data
