@@ -14,6 +14,8 @@ Requires input files:
   "EndMapBZS1Nov26.csv" (raw data file from image analysis)
   "SaltBTduckweeddesTRTS.csv" (experimental design)
   "AO BZS.1 12mar2019_sorted.csv" (optical density data)
+  "bzs.dattrt.csv" (growth data in table format) *start with this and below files for quick start re-analysis*
+  "sizetime.csv" (growth data in for size over time analysis) *start with this and below files for quick start re-analysis*
   "BZT in BZS1 for trts pooled within geno.csv" (benzotriazole concentration data)
   "ORB Samples all genos.csv" (treatment mapping file for wells sampled for benzotriazole concentration)
 Creates output files:
@@ -28,7 +30,7 @@ Creates output files:
 Depends on libraries: MCMCglmm
 
 
-R Script: 
+R Script: BZS micr plots and stats_streamlined_annotated.R
 Goal: Analyze microbiome data
 Requires input files:
   "bzsfieldtab.csv" (table of abundances in samples by ASV, includes inocula and field samples)
