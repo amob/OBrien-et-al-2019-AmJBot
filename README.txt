@@ -13,9 +13,9 @@ Requires input files:
   "EndDatBZS1Nov26.csv" (raw data file from image analysis)
   "EndMapBZS1Nov26.csv" (raw data file from image analysis)
   "SaltBTduckweeddesTRTS.csv" (experimental design)
-  "BZT in BZS1 for trts pooled within geno.csv"
   "AO BZS.1 12mar2019_sorted.csv" (optical density data)
-  "ORB Samples all genos.csv" (benzotriazole concentration data)
+  "BZT in BZS1 for trts pooled within geno.csv" (benzotriazole concentration data)
+  "ORB Samples all genos.csv" (treatment mapping file for wells sampled for benzotriazole concentration)
 Creates output files:
   "BZS1_Trait_results_plot.pdf" (Figure 2)
   "qqPix_liveplantsAS.pdf" (Supplmenentary figure, Appendix S4)
@@ -25,7 +25,6 @@ Creates output files:
   "BZTinBZS1_trts_within_geno_plusgrowth.csv" (dataframe formatted in useful way)
   "treatmenteffsBZTloss.pdf" (Figure 5)
   *also creates r objects (linear models, primarily), or output to terminal used in manuscript tables or text*
-
 Depends on libraries: MCMCglmm
 
 
